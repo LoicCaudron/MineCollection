@@ -95,8 +95,9 @@ public class ListMineralsActivity extends AppCompatActivity {
         }
         if(item.getTitle() == "Supprimer"){
 
-            //Toast.makeText(ListMineralsActivity.this, "Supprimer réussi",Toast.LENGTH_LONG).show();
-            remove();
+            Toast.makeText(ListMineralsActivity.this, "Supprimer réussi",Toast.LENGTH_LONG).show();
+            //remove();
+            
         }
         return true;
     }
@@ -104,7 +105,7 @@ public class ListMineralsActivity extends AppCompatActivity {
     public void remove() {
 
         try {
-            
+
         }
         catch(Exception e){
             Toast.makeText(ListMineralsActivity.this, e.toString(),Toast.LENGTH_LONG).show();
