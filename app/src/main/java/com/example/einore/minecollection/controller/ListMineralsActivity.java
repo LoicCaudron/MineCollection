@@ -1,4 +1,4 @@
-package com.example.einore.minecollection.Controller;
+package com.example.einore.minecollection.controller;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,8 +9,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.example.einore.minecollection.Model.Mineral;
-import com.example.einore.minecollection.Model.Mineral_DAO;
+import com.example.einore.minecollection.model.Mineral;
+import com.example.einore.minecollection.model.Mineral_DAO;
 import com.example.einore.minecollection.R;
 
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package com.example.einore.minecollection.Controller;
+package com.example.einore.minecollection.controller;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,12 +8,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.example.einore.minecollection.Model.Chemical;
-import com.example.einore.minecollection.Model.Chemical_DAO;
-import com.example.einore.minecollection.Model.Location;
-import com.example.einore.minecollection.Model.Location_DAO;
-import com.example.einore.minecollection.Model.Mineral;
-import com.example.einore.minecollection.Model.Mineral_DAO;
+import com.example.einore.minecollection.model.Chemical;
+import com.example.einore.minecollection.model.Chemical_DAO;
+import com.example.einore.minecollection.model.Location;
+import com.example.einore.minecollection.model.Location_DAO;
+import com.example.einore.minecollection.model.Mineral;
+import com.example.einore.minecollection.model.Mineral_DAO;
 import com.example.einore.minecollection.R;
 
 public class NewMineralActivity extends AppCompatActivity {

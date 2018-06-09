@@ -1,4 +1,4 @@
-package com.example.einore.minecollection.Controller;
+package com.example.einore.minecollection.controller;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,8 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.einore.minecollection.Model.User;
-import com.example.einore.minecollection.Model.User_DAO;
+import com.example.einore.minecollection.model.User;
+import com.example.einore.minecollection.model.User_DAO;
 import com.example.einore.minecollection.R;
 
 public class RegisterActivity extends AppCompatActivity {

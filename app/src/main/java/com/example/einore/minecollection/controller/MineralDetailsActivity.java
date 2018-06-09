@@ -1,4 +1,4 @@
-package com.example.einore.minecollection.Controller;
+package com.example.einore.minecollection.controller;
 
 import android.Manifest;
 import android.content.Context;
@@ -16,8 +16,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.einore.minecollection.Model.Mineral;
-import com.example.einore.minecollection.Model.Mineral_DAO;
+import com.example.einore.minecollection.model.Mineral;
+import com.example.einore.minecollection.model.Mineral_DAO;
 import com.example.einore.minecollection.R;
 
 import java.util.ArrayList;

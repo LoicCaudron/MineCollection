@@ -1,4 +1,4 @@
-package com.example.einore.minecollection.Model;
+package com.example.einore.minecollection.model;
 
 public class Chemical {
 

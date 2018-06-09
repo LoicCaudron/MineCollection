@@ -1,4 +1,4 @@
-package com.example.einore.minecollection.Model;
+package com.example.einore.minecollection.model;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
