@@ -151,6 +151,11 @@ public class MineralDetailsActivity extends AppCompatActivity {
                     intent.putExtra(Intent.EXTRA_TEXT, message);
                     intent.setType("message/rfc822");
                     startActivity(Intent.createChooser(intent, "Send Email"));
+
+                    //intent to return to the ListMineralActivity
+                    Intent listMineralsIntent = new Intent(MineralDetailsActivity.this, ListMineralsActivity.class);
+                    listMineralsIntent.putExtra("idUser", mineral.getForeignKey_user());
+                    startActivity(listMineralsIntent);
                 }
                 catch(Exception e){
                     Toast.makeText(MineralDetailsActivity.this, e.toString(),Toast.LENGTH_LONG).show();
