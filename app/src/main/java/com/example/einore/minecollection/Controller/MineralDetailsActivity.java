@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -25,6 +26,7 @@ public class MineralDetailsActivity extends AppCompatActivity {
 
 
     String num;
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,7 @@ public class MineralDetailsActivity extends AppCompatActivity {
 
         final EditText phone_num = (EditText) findViewById(R.id.editTextPhoneNumber);
         Button sendButton = (Button) findViewById(R.id.sendButton);
+        Button sendEmailButton = (Button) findViewById(R.id.sendEmailButton);
 
 
 
@@ -118,6 +121,39 @@ public class MineralDetailsActivity extends AppCompatActivity {
             private void sms(String message) {
                 if(num.length()>= 4){
                     SmsManager.getDefault().sendTextMessage(num, null, message, null, null );
+                }
+            }
+        });
+
+        sendEmailButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                try{
+
+                    String message = "Informations mineral ID : " + idMineral
+                            + setName
+                            + setSystCrist
+                            + setColor
+                            + setGlow
+                            + setAspect
+                            + setClivage
+                            + setHardness
+                            + setDensity
+                            + setPrice;
+
+                    //intent to send email
+                    intent = new Intent(Intent.ACTION_SEND);
+                    intent.setData(Uri.parse("mailto:"));
+                    String[] to={"lyrcaudron@gmail.com"};
+                    intent.putExtra(Intent.EXTRA_EMAIL, to);
+                    intent.putExtra(Intent.EXTRA_SUBJECT,"Test d'envoi d'email par une application mobile");
+                    intent.putExtra(Intent.EXTRA_TEXT, message);
+                    intent.setType("message/rfc822");
+                    startActivity(Intent.createChooser(intent, "Send Email"));
+                }
+                catch(Exception e){
+                    Toast.makeText(MineralDetailsActivity.this, e.toString(),Toast.LENGTH_LONG).show();
                 }
             }
         });
