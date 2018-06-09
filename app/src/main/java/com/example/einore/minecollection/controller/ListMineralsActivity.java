@@ -97,7 +97,7 @@ public class ListMineralsActivity extends AppCompatActivity {
 
             Toast.makeText(ListMineralsActivity.this, "Supprimer réussi",Toast.LENGTH_LONG).show();
             //remove();
-            
+
         }
         return true;
     }
