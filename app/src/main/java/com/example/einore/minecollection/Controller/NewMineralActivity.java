@@ -8,6 +8,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.einore.minecollection.Model.Chemical;
+import com.example.einore.minecollection.Model.Chemical_DAO;
+import com.example.einore.minecollection.Model.Location;
+import com.example.einore.minecollection.Model.Location_DAO;
+import com.example.einore.minecollection.Model.Mineral;
+import com.example.einore.minecollection.Model.Mineral_DAO;
+import com.example.einore.minecollection.R;
+
 public class NewMineralActivity extends AppCompatActivity {
 
     EditText et_name;

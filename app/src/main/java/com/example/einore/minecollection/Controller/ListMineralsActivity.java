@@ -9,6 +9,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.einore.minecollection.Model.Mineral;
+import com.example.einore.minecollection.Model.Mineral_DAO;
+import com.example.einore.minecollection.R;
+
 import java.util.ArrayList;
 
 public class ListMineralsActivity extends AppCompatActivity {
@@ -50,7 +54,7 @@ public class ListMineralsActivity extends AppCompatActivity {
                 int id_mineral = mineralToDetail.getMineral_id();
                 String id_mineralString = Integer.toString(id_mineral);
 
-                Intent mineralDetailIntent = new Intent(ListMineralsActivity.this, MineralDetailActivity.class);
+                Intent mineralDetailIntent = new Intent(ListMineralsActivity.this, MineralDetailsActivity.class);
                 mineralDetailIntent.putExtra("idMineral", id_mineralString);
                 mineralDetailIntent.putExtra("idUser", fk_user);
                 startActivity(mineralDetailIntent);

@@ -15,6 +15,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.einore.minecollection.Model.Mineral;
+import com.example.einore.minecollection.Model.Mineral_DAO;
+import com.example.einore.minecollection.R;
+
 import java.util.ArrayList;
 
 public class MineralDetailsActivity extends AppCompatActivity {
@@ -25,7 +29,7 @@ public class MineralDetailsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mineral_detail);
+        setContentView(R.layout.activity_mineral_details);
         setTitle("Mineral details");
 
         TextView idView = (TextView)findViewById(R.id.textViewId);
@@ -102,12 +106,12 @@ public class MineralDetailsActivity extends AppCompatActivity {
                     smsManager.sendMultipartTextMessage(num, null, parts,
                             null, null);
                     //sms(message);
-                    Intent listMineralsIntent = new Intent(MineralDetailActivity.this, ListMineralsActivity.class);
+                    Intent listMineralsIntent = new Intent(MineralDetailsActivity.this, ListMineralsActivity.class);
                     listMineralsIntent.putExtra("idUser", mineral.getForeignKey_user());
                     startActivity(listMineralsIntent);
                 }
                 catch(Exception e){
-                    Toast.makeText(MineralDetailActivity.this, e.toString(),Toast.LENGTH_LONG).show();
+                    Toast.makeText(MineralDetailsActivity.this, e.toString(),Toast.LENGTH_LONG).show();
                 }
             }
 
@@ -119,20 +123,20 @@ public class MineralDetailsActivity extends AppCompatActivity {
         });
 
         // Here, thisActivity is the current activity
-        if (ContextCompat.checkSelfPermission(MineralDetailActivity.this,
+        if (ContextCompat.checkSelfPermission(MineralDetailsActivity.this,
                 Manifest.permission.SEND_SMS)
                 != PackageManager.PERMISSION_GRANTED) {
 
             // Permission is not granted
             // Should we show an explanation?
-            if (ActivityCompat.shouldShowRequestPermissionRationale(MineralDetailActivity.this,
+            if (ActivityCompat.shouldShowRequestPermissionRationale(MineralDetailsActivity.this,
                     Manifest.permission.SEND_SMS)) {
                 // Show an explanation to the user *asynchronously* -- don't block
                 // this thread waiting for the user's response! After the user
                 // sees the explanation, try again to request the permission.
             } else {
                 // No explanation needed; request the permission
-                ActivityCompat.requestPermissions(MineralDetailActivity.this,
+                ActivityCompat.requestPermissions(MineralDetailsActivity.this,
                         new String[]{Manifest.permission.SEND_SMS},
                         0);
 

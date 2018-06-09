@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.einore.minecollection.Model.User;
+import com.example.einore.minecollection.Model.User_DAO;
 import com.example.einore.minecollection.R;
 
 // class permettant de se connecter à l'application

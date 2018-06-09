@@ -9,6 +9,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.einore.minecollection.Model.User;
+import com.example.einore.minecollection.Model.User_DAO;
+import com.example.einore.minecollection.R;
+
 public class RegisterActivity extends AppCompatActivity {
 
     Button signUp_button;
