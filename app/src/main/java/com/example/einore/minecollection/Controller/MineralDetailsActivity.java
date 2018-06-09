@@ -26,7 +26,6 @@ public class MineralDetailsActivity extends AppCompatActivity {
 
 
     String num;
-    String to;
     Intent intent;
 
     @Override
@@ -47,7 +46,8 @@ public class MineralDetailsActivity extends AppCompatActivity {
         TextView priceView = (TextView) findViewById(R.id.textViewPrice);
 
         final EditText phone_num = (EditText) findViewById(R.id.editTextPhoneNumber);
-        Button sendButton = (Button) findViewById(R.id.sendButton);
+        final EditText email = (EditText) findViewById(R.id.editTextEmail);
+        final Button sendButton = (Button) findViewById(R.id.sendButton);
         final Button sendEmailButton = (Button) findViewById(R.id.sendEmailButton);
 
 
@@ -131,7 +131,7 @@ public class MineralDetailsActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 try{
-                    to = sendEmailButton.getText().toString();
+                    //String email = sendEmailButton.getText().toString();
                     String message = "Informations mineral ID : " + idMineral
                             + setName
                             + setSystCrist
@@ -146,7 +146,7 @@ public class MineralDetailsActivity extends AppCompatActivity {
                     //intent to send email
                     intent = new Intent(Intent.ACTION_SEND);
                     intent.setData(Uri.parse("mailto:"));
-                    //String[] to={"lyrcaudron@gmail.com"};
+                    String[] to={email.getText().toString()};
                     intent.putExtra(Intent.EXTRA_EMAIL, to);
                     intent.putExtra(Intent.EXTRA_SUBJECT,"Test d'envoi d'email par une application mobile");
                     intent.putExtra(Intent.EXTRA_TEXT, message);
