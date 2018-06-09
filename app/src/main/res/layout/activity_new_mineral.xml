@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Controller.NewMineralActivity"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginLeft="10dp"
+            android:text="Complete the following fields describing a mineral"
+            android:textColor="@android:color/black"/>
+
+        <EditText
+            android:id="@+id/editTextName"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:layout_marginTop="3dp"
+            android:layout_marginLeft="10dp"
+            android:hint="Name" />
+
+        <EditText
+            android:id="@+id/editTextSynonym"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:layout_marginTop="3dp"
+            android:layout_marginLeft="10dp"
+            android:hint="Synonym"  />
+
+        <EditText
+            android:id="@+id/editTextMinAss"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:layout_marginTop="3dp"
+            android:layout_marginLeft="10dp"
+            android:hint="Associated Mineral"  />
+
+        <EditText
+            android:id="@+id/editTextSystCrist"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:layout_marginTop="3dp"
+            android:layout_marginLeft="10dp"
+            android:hint="Cristallin system"  />
+
+        <EditText
+            android:id="@+id/editTextColor"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:layout_marginTop="3dp"
+            android:layout_marginLeft="10dp"
+            android:hint="Color"  />
+
+        <EditText
+            android:id="@+id/editTextGlow"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:layout_marginTop="3dp"
+            android:layout_marginLeft="10dp"
+            android:hint="Glow"  />
+
+        <EditText
+            android:id="@+id/editTextAspect"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:layout_marginTop="3dp"
+            android:layout_marginLeft="10dp"
+            android:hint="Aspect"  />
+
+        <EditText
+            android:id="@+id/editTextClivage"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:layout_marginTop="3dp"
+            android:layout_marginLeft="10dp"
+            android:hint="Clivage"  />
+
+        <EditText
+            android:id="@+id/editTextHardness"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:layout_marginTop="3dp"
+            android:layout_marginLeft="10dp"
+            android:hint="Hardness"/>
+
+
+        <EditText
+            android:id="@+id/editTextDensity"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:layout_marginLeft="10dp"
+            android:ems="10"
+            android:hint="Density"
+            android:inputType="numberDecimal" />
+
+        <EditText
+            android:id="@+id/editTextPrice"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:layout_marginTop="3dp"
+            android:layout_marginLeft="10dp"
+            android:hint="Price"/>
+
+        <EditText
+            android:id="@+id/editTextLocation"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:layout_marginTop="3dp"
+            android:layout_marginLeft="10dp"
+            android:hint="Stockage location "  />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="10dp"
+            android:text="Complete the following fields about chemicals "
+            android:textColor="@android:color/black"/>
+
+        <EditText
+            android:id="@+id/editTextChemicalFormula"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:layout_marginLeft="10dp"
+            android:ems="10"
+            android:hint="Chemical Formula"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/editTextChemicalClass"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:layout_marginLeft="10dp"
+            android:ems="10"
+            android:hint="Chemical class"
+            android:inputType="phone" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="10dp"
+            android:text="Complete the following fields about finding location"
+            android:textColor="@android:color/black"/>
+
+        <EditText
+            android:id="@+id/editTextCity"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:layout_marginLeft="10dp"
+            android:ems="10"
+            android:hint="City"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/editTextArea"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:layout_marginLeft="10dp"
+            android:ems="10"
+            android:hint="Area"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/editTextCountry"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:layout_marginLeft="10dp"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:hint="Country"
+            />
+
+        <Button
+            android:id="@+id/buttonAdd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
+            android:text="Add mineral" />
+
+
+
+
+    </LinearLayout>
+
+</ScrollView>
