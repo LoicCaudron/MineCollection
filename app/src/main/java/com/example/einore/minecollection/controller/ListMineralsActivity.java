@@ -4,10 +4,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.ContextMenu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.einore.minecollection.model.Mineral;
 import com.example.einore.minecollection.model.Mineral_DAO;
@@ -18,6 +21,7 @@ import java.util.ArrayList;
 public class ListMineralsActivity extends AppCompatActivity {
 
     ListView listMinerals;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +51,11 @@ public class ListMineralsActivity extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, basicsMinerals);
         listMinerals.setAdapter(adapter);
 
+        registerForContextMenu(listMinerals);
+
+
+
+        //function to retrieve the id of a selected element in the listview
         listMinerals.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -63,5 +72,28 @@ public class ListMineralsActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+
+        menu.add("Modifier");
+        menu.add("Supprimer");
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        super.onContextItemSelected(item);
+
+        if(item.getTitle() == "Modifier"){
+
+            Toast.makeText(ListMineralsActivity.this, "Modifier réussi",Toast.LENGTH_LONG).show();
+        }
+        if(item.getTitle() == "Supprimer"){
+
+            Toast.makeText(ListMineralsActivity.this, "Supprimer réussi",Toast.LENGTH_LONG).show();
+        }
+        return true;
     }
 }
