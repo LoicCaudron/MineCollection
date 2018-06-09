@@ -12,6 +12,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.einore.minecollection.model.Chemical_DAO;
+import com.example.einore.minecollection.model.Location_DAO;
 import com.example.einore.minecollection.model.Mineral;
 import com.example.einore.minecollection.model.Mineral_DAO;
 import com.example.einore.minecollection.R;
@@ -93,40 +95,19 @@ public class ListMineralsActivity extends AppCompatActivity {
         }
         if(item.getTitle() == "Supprimer"){
 
-            Toast.makeText(ListMineralsActivity.this, "Supprimer réussi",Toast.LENGTH_LONG).show();
+            //Toast.makeText(ListMineralsActivity.this, "Supprimer réussi",Toast.LENGTH_LONG).show();
             remove();
         }
         return true;
     }
 
-    private void remove() {
+    public void remove() {
 
-        /*listMinerals.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-
-                Intent homeIntent = getIntent();
-                final String fk_user = homeIntent.getStringExtra("idUser");
-                int fk_userInt = Integer.parseInt(fk_user);
-                Mineral_DAO mineral_dao = new Mineral_DAO(ListMineralsActivity.this);
-                final ArrayList<Mineral> minerals = mineral_dao.getAllObject(fk_userInt);
-
-                Mineral mineralToDetail = minerals.get(position);
-                int id_mineral = mineralToDetail.getMineral_id();
-                String id_mineralString = Integer.toString(id_mineral);
-
-                ArrayList<String> basicsMinerals = new ArrayList<>();
-                for (int i = 0; i<minerals.size(); i++){
-                    String text = " ID : " + minerals.get(i).getMineral_id() + "    Name : " + minerals.get(i).getMineral_name()
-                            + "    Color : " + minerals.get(i).getMineral_color();
-                    basicsMinerals.add(text);
-                }
-
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(ListMineralsActivity.this, android.R.layout.simple_list_item_1, basicsMinerals);
-                listMinerals.setAdapter(adapter);
-
-                return true;
-            }
-        });*/
+        try {
+            
+        }
+        catch(Exception e){
+            Toast.makeText(ListMineralsActivity.this, e.toString(),Toast.LENGTH_LONG).show();
+        }
     }
 }
