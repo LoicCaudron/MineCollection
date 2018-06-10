@@ -77,7 +77,7 @@ public class ListMineralsActivity extends AppCompatActivity {
 
     }
 
-    @Override
+    @Override   //fonction permettant de créer le menu contextuel
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
 
@@ -85,7 +85,7 @@ public class ListMineralsActivity extends AppCompatActivity {
         menu.add("Supprimer");
     }
 
-    @Override
+    @Override //fonction permettant de faire différentes actions suivant la sélection
     public boolean onContextItemSelected(MenuItem item) {
         super.onContextItemSelected(item);
 
@@ -101,6 +101,7 @@ public class ListMineralsActivity extends AppCompatActivity {
         }
         return true;
     }
+
 
     public void remove() {
 
