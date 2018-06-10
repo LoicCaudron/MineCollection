@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.example.einore.minecollection.model.Chemical_DAO;
@@ -23,6 +24,7 @@ import java.util.ArrayList;
 public class ListMineralsActivity extends AppCompatActivity {
 
     ListView listMinerals;
+    SearchView sv;
 
     int id_test = -1;
 
@@ -40,6 +42,8 @@ public class ListMineralsActivity extends AppCompatActivity {
         final Chemical_DAO chemical_dao = new Chemical_DAO(ListMineralsActivity.this);
 
         listMinerals = (ListView)findViewById(R.id.mineralsList);
+        sv = (SearchView) findViewById(R.id.searchView);
+
 
         Context context = getApplicationContext();
         final Mineral_DAO mineral_dao = new Mineral_DAO(context);
@@ -55,11 +59,25 @@ public class ListMineralsActivity extends AppCompatActivity {
             basicsMinerals.add(text);
         }
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, basicsMinerals);
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, basicsMinerals);
         listMinerals.setAdapter(adapter);
 
         registerForContextMenu(listMinerals);
 
+        //function to research
+        sv.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+
+                adapter.getFilter().filter(newText);
+                return false;
+            }
+        });
 
 
         //function to retrieve the id of a selected element in the listview

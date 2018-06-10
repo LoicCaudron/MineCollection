@@ -10,6 +10,12 @@
     tools:context="com.example.einore.minecollection.controller.ListMineralsActivity"
     android:orientation="vertical">
 
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="395dp"
+        android:layout_height="59dp"
+        android:queryHint="Search.."/>
+
     <ListView
         android:id="@+id/mineralsList"
         android:layout_width="fill_parent"
