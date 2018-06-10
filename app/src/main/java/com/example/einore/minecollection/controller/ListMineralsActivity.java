@@ -91,7 +91,7 @@ public class ListMineralsActivity extends AppCompatActivity {
                 return true;
             }
 
-                       
+
 
 
         });
