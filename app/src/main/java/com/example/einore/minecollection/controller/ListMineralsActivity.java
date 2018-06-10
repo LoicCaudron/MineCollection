@@ -34,10 +34,13 @@ public class ListMineralsActivity extends AppCompatActivity {
         final String fk_user = homeIntent.getStringExtra("idUser");
         int fk_userInt = Integer.parseInt(fk_user);
 
+        final Location_DAO location_dao = new Location_DAO(ListMineralsActivity.this);
+        final Chemical_DAO chemical_dao = new Chemical_DAO(ListMineralsActivity.this);
+
         listMinerals = (ListView)findViewById(R.id.mineralsList);
 
         Context context = getApplicationContext();
-        Mineral_DAO mineral_dao = new Mineral_DAO(context);
+        final Mineral_DAO mineral_dao = new Mineral_DAO(context);
         mineral_dao.openForRead();
         final ArrayList<Mineral> minerals = mineral_dao.getAllObject(fk_userInt);
         mineral_dao.close();
@@ -73,6 +76,7 @@ public class ListMineralsActivity extends AppCompatActivity {
 
             }
         });
+
 
 
     }
