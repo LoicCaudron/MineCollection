@@ -79,7 +79,7 @@ public class ListMineralsActivity extends AppCompatActivity {
             }
         });
 
-        /*listMinerals.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+        listMinerals.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
 
@@ -88,14 +88,15 @@ public class ListMineralsActivity extends AppCompatActivity {
                 String id_mineralString = Integer.toString(id_test);
                 Toast.makeText(ListMineralsActivity.this, id_mineralString.toString(),Toast.LENGTH_LONG).show();
 
-
                 return true;
             }
 
+                       
 
-        });*/
 
-        listMinerals.setOnCreateContextMenuListener(new View.OnCreateContextMenuListener() {
+        });
+
+        /*listMinerals.setOnCreateContextMenuListener(new View.OnCreateContextMenuListener() {
 
             @Override
             public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
@@ -138,7 +139,7 @@ public class ListMineralsActivity extends AppCompatActivity {
                     }
                 });
             }
-        });
+        });*/
 
 
     }
