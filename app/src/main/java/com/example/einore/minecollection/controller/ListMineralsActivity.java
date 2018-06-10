@@ -77,7 +77,7 @@ public class ListMineralsActivity extends AppCompatActivity {
 
     }
 
-    @Override   //fonction permettant de créer le menu contextuel
+    @Override   //fonction permettant de créer le menu contextuce
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
 
