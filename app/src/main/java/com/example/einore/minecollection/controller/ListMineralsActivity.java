@@ -86,7 +86,7 @@ public class ListMineralsActivity extends AppCompatActivity {
         listMinerals.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                
+
                 /*Mineral mineralToDetail = minerals.get(position);
                 int id_mineral = mineralToDetail.getMineral_id();
                 String id_mineralString = Integer.toString(id_mineral);*/
