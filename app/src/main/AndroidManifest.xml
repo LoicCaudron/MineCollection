@@ -23,7 +23,8 @@
         <activity android:name=".controller.RegisterActivity" />
         <activity android:name=".controller.ListMineralsActivity" />
         <activity android:name=".controller.MineralDetailsActivity" />
-        <activity android:name=".controller.NewMineralActivity"></activity>
+        <activity android:name=".controller.NewMineralActivity" />
+        <activity android:name=".controller.EditMineralActivity"></activity>
     </application>
 
 </manifest>

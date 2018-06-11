@@ -118,7 +118,12 @@ public class ListMineralsActivity extends AppCompatActivity {
                 //char id_mineral = item.charAt(6);  //récupération du 6ième char du string
                 //String id_mineralString = Character.toString(id_mineral); //conversion du char en string
 
-                Toast.makeText(ListMineralsActivity.this, id_mineralString.toString(),Toast.LENGTH_LONG).show();
+                //Toast.makeText(ListMineralsActivity.this, id_mineralString.toString(),Toast.LENGTH_LONG).show();
+
+                Intent editMineralIntent = new Intent(ListMineralsActivity.this, EditMineralActivity.class);
+                editMineralIntent.putExtra("idMineral", id_mineralString);
+                editMineralIntent.putExtra("idUser", fk_user);
+                startActivity(editMineralIntent);
 
 
                 return true;
