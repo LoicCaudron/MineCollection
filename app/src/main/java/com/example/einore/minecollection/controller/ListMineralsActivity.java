@@ -94,7 +94,7 @@ public class ListMineralsActivity extends AppCompatActivity {
                 String dish = item.split(": ")[0];
                 String id_mineralString0 = item.split(": ")[1];
                 String id_mineralString = id_mineralString0.split("    N")[0];
-                
+
                 Intent mineralDetailIntent = new Intent(ListMineralsActivity.this, MineralDetailsActivity.class);
                 mineralDetailIntent.putExtra("idMineral", id_mineralString);
                 mineralDetailIntent.putExtra("idUser", fk_user);
