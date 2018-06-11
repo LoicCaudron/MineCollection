@@ -124,9 +124,6 @@ public class ListMineralsActivity extends AppCompatActivity {
                 return true;
             }
 
-
-
-
         });
 
         /*listMinerals.setOnCreateContextMenuListener(new View.OnCreateContextMenuListener() {
