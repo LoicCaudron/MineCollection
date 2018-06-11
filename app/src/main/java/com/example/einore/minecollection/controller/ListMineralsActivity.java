@@ -20,6 +20,8 @@ import com.example.einore.minecollection.model.Mineral_DAO;
 import com.example.einore.minecollection.R;
 
 import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.regex.Matcher;
 
 public class ListMineralsActivity extends AppCompatActivity {
 
@@ -84,10 +86,15 @@ public class ListMineralsActivity extends AppCompatActivity {
         listMinerals.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Mineral mineralToDetail = minerals.get(position);
+                /*Mineral mineralToDetail = minerals.get(position);
                 int id_mineral = mineralToDetail.getMineral_id();
-                String id_mineralString = Integer.toString(id_mineral);
+                String id_mineralString = Integer.toString(id_mineral);*/
 
+                String item = (String) parent.getItemAtPosition(position);
+                String dish = item.split(": ")[0];
+                String id_mineralString0 = item.split(": ")[1];
+                String id_mineralString = id_mineralString0.split("    N")[0];
+                
                 Intent mineralDetailIntent = new Intent(ListMineralsActivity.this, MineralDetailsActivity.class);
                 mineralDetailIntent.putExtra("idMineral", id_mineralString);
                 mineralDetailIntent.putExtra("idUser", fk_user);
@@ -101,10 +108,22 @@ public class ListMineralsActivity extends AppCompatActivity {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
 
-                Mineral mineralToDetail = minerals.get(position);
+                String item = (String) parent.getItemAtPosition(position);
+                String dish = item.split(": ")[0];
+                String id_mineralString0 = item.split(": ")[1];
+                String id_mineralString = id_mineralString0.split("    N")[0];
+
+
+                //char id_mineral = item.charAt(6);  //récupération du 6ième char du string
+                //String id_mineralString = Character.toString(id_mineral); //conversion du char en string
+
+                Toast.makeText(ListMineralsActivity.this, id_mineralString.toString(),Toast.LENGTH_LONG).show();
+
+
+                /*Mineral mineralToDetail = minerals.get(position);
                 id_test = mineralToDetail.getMineral_id();
                 String id_mineralString = Integer.toString(id_test);
-                Toast.makeText(ListMineralsActivity.this, id_mineralString.toString(),Toast.LENGTH_LONG).show();
+                Toast.makeText(ListMineralsActivity.this, id_mineralString.toString(),Toast.LENGTH_LONG).show();*/
 
                 return true;
             }
