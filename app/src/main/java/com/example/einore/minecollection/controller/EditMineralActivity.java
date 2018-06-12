@@ -98,6 +98,9 @@ public class EditMineralActivity extends AppCompatActivity {
             densityEdit.setText(densityE);
             priceEdit.setText(priceE);
 
+            final int fk_location = mineral.getForeignKey_location();
+            final int fk_chemical = mineral.getForeignKey_chemical();
+
 
             saveButton.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -115,6 +118,7 @@ public class EditMineralActivity extends AppCompatActivity {
                     float density = Float.parseFloat(densityEdit.getText().toString());
                     float price = Float.parseFloat(priceEdit.getText().toString());
                     String location = locationEdit.getText().toString();
+                    int fkUser = Integer.parseInt(fk_user);
 
                     if(name.isEmpty()){
                         //error name is empty
@@ -174,7 +178,7 @@ public class EditMineralActivity extends AppCompatActivity {
                     Mineral updatedMineral = new Mineral();
 
                     try{
-                    //updatedMineral.setMineral_id(id);
+                    updatedMineral.setMineral_id(id);
                     updatedMineral.setMineral_name(name);
                     updatedMineral.setMineral_minAss(minAss);
                     updatedMineral.setMineral_systCrist(systCrist);
@@ -186,6 +190,9 @@ public class EditMineralActivity extends AppCompatActivity {
                     updatedMineral.setMineral_density(density);
                     updatedMineral.setMineral_price(price);
                     updatedMineral.setMineral_location(location);
+                    updatedMineral.setForeignKey_user(fkUser);
+                    updatedMineral.setForeignKey_location(fk_location);
+                    updatedMineral.setForeignKey_chemical(fk_chemical);
 
 
                         mMineral_dao.openForWrite();

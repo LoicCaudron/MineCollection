@@ -96,7 +96,7 @@ public class Mineral_DAO  {
 
     public int update(String id, Mineral object) {
         ContentValues content = new ContentValues();
-
+        content.put(COL_ID, object.getMineral_id());
         content.put(COL_NAME, object.getMineral_name());
         content.put(COL_SYNONYM, object.getMineral_synonyme());
         content.put(COL_MINASS, object.getMineral_minAss());
