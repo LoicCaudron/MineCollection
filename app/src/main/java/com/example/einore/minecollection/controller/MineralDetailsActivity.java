@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.example.einore.minecollection.model.Chemical;
 import com.example.einore.minecollection.model.Chemical_DAO;
+import com.example.einore.minecollection.model.Location;
 import com.example.einore.minecollection.model.Location_DAO;
 import com.example.einore.minecollection.model.Mineral;
 import com.example.einore.minecollection.model.Mineral_DAO;
@@ -49,6 +50,11 @@ public class MineralDetailsActivity extends AppCompatActivity {
         TextView densityView = (TextView) findViewById(R.id.textViewDensity);
         TextView priceView = (TextView) findViewById(R.id.textViewPrice);
         TextView locationView = (TextView) findViewById(R.id.textViewLocation);
+        TextView chemicalFormulaView = (TextView) findViewById(R.id.textViewChemicalFormula);
+        TextView chemicalClassView = (TextView) findViewById(R.id.textViewChemicalClass);
+        TextView cityView = (TextView) findViewById(R.id.textViewCity);
+        TextView areaView = (TextView) findViewById(R.id.textViewArea);
+        TextView countryView = (TextView) findViewById(R.id.textViewCountry);
 
         final EditText phone_num = (EditText) findViewById(R.id.editTextPhoneNumber);
         final EditText email = (EditText) findViewById(R.id.editTextEmail);
@@ -63,14 +69,22 @@ public class MineralDetailsActivity extends AppCompatActivity {
 
         //Context context = getApplicationContext();
         Mineral_DAO mineral_dao = new Mineral_DAO(MineralDetailsActivity.this);
-        //Chemical_DAO chemical_dao = new Chemical_DAO(MineralDetailsActivity.this);
-        //Location_DAO location_dao = new Location_DAO(MineralDetailsActivity.this);
+        Chemical_DAO chemical_dao = new Chemical_DAO(MineralDetailsActivity.this);
+        Location_DAO location_dao = new Location_DAO(MineralDetailsActivity.this);
 
         mineral_dao.openForRead();
+        chemical_dao.openForRead();
+        location_dao.openForRead();
         final Mineral mineral = mineral_dao.getObjectById(idMineral);
-        //final Chemical chemical = chemical_dao.getObjectById();
-        //final Location location = location_dao.getObjectById();
+        final int fk_location = mineral.getForeignKey_location();
+        final int fk_chemical = mineral.getForeignKey_chemical();
+        String fkLocation = String.valueOf(fk_location);
+        String fkChemical = String.valueOf(fk_chemical);
+        final Chemical chemical = chemical_dao.getObjectById(fkChemical);
+        final Location location = location_dao.getObjectById(fkLocation);
         mineral_dao.close();
+        chemical_dao.close();
+        location_dao.close();
 
         final String setId = " Description of mineral ID : " + idMineral;
         final String setName = "\n Name : " + mineral.getMineral_name();
@@ -84,6 +98,11 @@ public class MineralDetailsActivity extends AppCompatActivity {
         final String setDensity = "\n Density : " + mineral.getMineral_density();
         final String setPrice = "\n Price : " + mineral.getMineral_price();
         final String setLocation = "\n Location : " + mineral.getMineral_location();
+        final String setChemicalFormula = "\n Chemical Formula : " + chemical.getChemical_formula();
+        final String setChemicalClass = "\n Chemical Class : " + chemical.getChemical_class();
+        final String setCity = "\n City : " + location.getLocation_city();
+        final String setArea = "\n Area : " + location.getLocation_area();
+        final String setCountry = "\n Country : " + location.getLocation_Country();
 
         idView.setText(setId);
         nameView.setText(setName);
@@ -97,6 +116,11 @@ public class MineralDetailsActivity extends AppCompatActivity {
         densityView.setText(setDensity);
         priceView.setText(setPrice);
         locationView.setText(setLocation);
+        chemicalFormulaView.setText(setChemicalFormula);
+        chemicalClassView.setText(setChemicalClass);
+        cityView.setText(setCity);
+        areaView.setText(setArea);
+        countryView.setText(setCountry);
 
 
         sendButton.setOnClickListener(new View.OnClickListener() {
@@ -159,7 +183,12 @@ public class MineralDetailsActivity extends AppCompatActivity {
                             + setHardness
                             + setDensity
                             + setPrice
-                            + setLocation;
+                            + setLocation
+                            + setChemicalFormula
+                            + setChemicalClass
+                            + setCity
+                            + setArea
+                            + setCountry;
 
                     //intent to send email
                     intent = new Intent(Intent.ACTION_SEND);
