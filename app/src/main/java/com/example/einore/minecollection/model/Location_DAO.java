@@ -118,6 +118,7 @@ public class Location_DAO  {
             return null;
         }
         ArrayList<Location> listLocation = new ArrayList<>();
+        c.moveToFirst();
         do{
             Location location = new Location();
             location.setLocation_id(c.getInt(NUM_COL_ID));

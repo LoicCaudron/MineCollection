@@ -121,6 +121,7 @@ public class Chemical_DAO   {
             return null;
         }
         ArrayList<Chemical> listChemical = new ArrayList<>();
+        c.moveToFirst();
         do{
             Chemical chemical = new Chemical();
             chemical.setChemical_id(c.getInt(NUM_COL_ID));
