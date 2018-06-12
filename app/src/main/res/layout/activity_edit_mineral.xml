@@ -406,7 +406,7 @@
 
                 <EditText
                     android:id="@+id/editTextChemicalFormula"
-                    android:layout_width="258dp"
+                    android:layout_width="204dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
@@ -436,11 +436,11 @@
 
                 <EditText
                     android:id="@+id/editTextChemicalClass"
-                    android:layout_width="258dp"
+                    android:layout_width="210dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginEnd="3dp" />
+                    android:layout_marginEnd="14dp" />
 
             </RelativeLayout>
 
