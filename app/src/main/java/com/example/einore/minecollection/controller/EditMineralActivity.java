@@ -19,6 +19,7 @@ public class EditMineralActivity extends AppCompatActivity {
 
 
     private EditText nameEdit;
+    private EditText minAssEdit;
     private EditText systCristEdit;
     private EditText colorEdit;
     private EditText glowEdit;
@@ -27,6 +28,7 @@ public class EditMineralActivity extends AppCompatActivity {
     private EditText hardnessEdit;
     private EditText densityEdit;
     private EditText priceEdit;
+    private EditText locationEdit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,7 @@ public class EditMineralActivity extends AppCompatActivity {
 
             TextView idView = (TextView)findViewById(R.id.textViewId);
             TextView nameView = (TextView) findViewById(R.id.textViewName);
+            TextView minAssView = (TextView) findViewById(R.id.textViewMinAss);
             TextView systCristView = (TextView) findViewById(R.id.textViewSystCrist);
             TextView colorView = (TextView) findViewById(R.id.textViewColor);
             TextView glowView = (TextView) findViewById(R.id.textViewGlow);
@@ -46,9 +49,11 @@ public class EditMineralActivity extends AppCompatActivity {
             TextView hardnessView = (TextView) findViewById(R.id.textViewHardness);
             TextView densityView = (TextView) findViewById(R.id.textViewDensity);
             TextView priceView = (TextView) findViewById(R.id.textViewPrice);
+            TextView locationView = (TextView) findViewById(R.id.textViewLocation);
 
 
             nameEdit = (EditText) findViewById(R.id.editTextName);
+            minAssEdit = (EditText) findViewById(R.id.editTextMinAss);
             systCristEdit = (EditText) findViewById(R.id.editTextSystCrist);
             colorEdit = (EditText) findViewById(R.id.editTextColor);
             glowEdit = (EditText) findViewById(R.id.editTextGlow);
@@ -57,6 +62,7 @@ public class EditMineralActivity extends AppCompatActivity {
             hardnessEdit = (EditText) findViewById(R.id.editTextHardness);
             densityEdit = (EditText) findViewById(R.id.editTextDensity);
             priceEdit = (EditText) findViewById(R.id.editTextPrice);
+            locationEdit = (EditText) findViewById(R.id.editTextLocation);
 
             Button saveButton = (Button) findViewById(R.id.buttonSave);
             Button deleteButton = (Button) findViewById(R.id.buttonDelete);
@@ -72,16 +78,17 @@ public class EditMineralActivity extends AppCompatActivity {
             mMineral_dao.close();
 
 
-            String setId = " Description of mineral ID : " + idMineral;
+            final String setId = " Description of mineral ID : " + idMineral;
 
             idView.setText(setId);
             nameEdit.setText(mineral.getMineral_name());
+            minAssEdit.setText(mineral.getMineral_minAss());
             systCristEdit.setText(mineral.getMineral_systCrist());
             colorEdit.setText(mineral.getMineral_color());
             glowEdit.setText(mineral.getMineral_glow());
             aspectEdit.setText(mineral.getMineral_aspect());
             clivageEdit.setText(mineral.getMineral_clivage());
-
+            locationEdit.setText(mineral.getMineral_location());
 
             String hardnessE = String.valueOf(mineral.getMineral_hardness());
             String densityE = String.valueOf(mineral.getMineral_density());
@@ -96,19 +103,27 @@ public class EditMineralActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
 
+                    int id = Integer.parseInt(setId);
                     String name = nameEdit.getText().toString();
-                    String systCrist = nameEdit.getText().toString();
-                    String color = nameEdit.getText().toString();
-                    String glow = nameEdit.getText().toString();
-                    String aspect = nameEdit.getText().toString();
-                    String clivage = nameEdit.getText().toString();
-                    float hardness = Float.parseFloat(nameEdit.getText().toString());
-                    float density = Float.parseFloat(nameEdit.getText().toString());
-                    float price = Float.parseFloat(nameEdit.getText().toString());
+                    String minAss = minAssEdit.getText().toString();
+                    String systCrist = systCristEdit.getText().toString();
+                    String color = colorEdit.getText().toString();
+                    String glow = glowEdit.getText().toString();
+                    String aspect = aspectEdit.getText().toString();
+                    String clivage = clivageEdit.getText().toString();
+                    float hardness = Float.parseFloat(hardnessEdit.getText().toString());
+                    float density = Float.parseFloat(densityEdit.getText().toString());
+                    float price = Float.parseFloat(priceEdit.getText().toString());
+                    String location = locationEdit.getText().toString();
 
                     if(name.isEmpty()){
                         //error name is empty
                         Toast.makeText(EditMineralActivity.this, "You must enter a name", Toast.LENGTH_SHORT).show();
+                    }
+
+                    if(minAss.isEmpty()){
+                        //error name is empty
+                        Toast.makeText(EditMineralActivity.this, "You must enter a minAss", Toast.LENGTH_SHORT).show();
                     }
 
                     if(systCrist.isEmpty()){
@@ -151,9 +166,17 @@ public class EditMineralActivity extends AppCompatActivity {
                     Toast.makeText(EditMineralActivity.this, "You must enter a price", Toast.LENGTH_SHORT).show();
                 }*/
 
+                    if(location.isEmpty()){
+                        //error name is empty
+                        Toast.makeText(EditMineralActivity.this, "You must enter a location", Toast.LENGTH_SHORT).show();
+                    }
+
                     Mineral updatedMineral = new Mineral();
 
+                    try{
+                    //updatedMineral.setMineral_id(id);
                     updatedMineral.setMineral_name(name);
+                    updatedMineral.setMineral_minAss(minAss);
                     updatedMineral.setMineral_systCrist(systCrist);
                     updatedMineral.setMineral_color(color);
                     updatedMineral.setMineral_glow(glow);
@@ -162,9 +185,12 @@ public class EditMineralActivity extends AppCompatActivity {
                     updatedMineral.setMineral_hardness(hardness);
                     updatedMineral.setMineral_density(density);
                     updatedMineral.setMineral_price(price);
+                    updatedMineral.setMineral_location(location);
 
-                    try{
+
+                        mMineral_dao.openForWrite();
                         mMineral_dao.update(idMineral, updatedMineral);
+                        mMineral_dao.close();
                     }
                     catch (Exception e){
                         Toast.makeText(EditMineralActivity.this, e.toString(), Toast.LENGTH_LONG).show();
