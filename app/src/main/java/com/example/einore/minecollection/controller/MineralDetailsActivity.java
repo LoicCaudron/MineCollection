@@ -141,6 +141,7 @@ public class MineralDetailsActivity extends AppCompatActivity {
             }
         });
 
+        //send a email
         sendEmailButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
