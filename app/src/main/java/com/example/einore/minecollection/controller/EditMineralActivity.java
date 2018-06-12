@@ -10,7 +10,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.einore.minecollection.R;
+import com.example.einore.minecollection.model.Chemical;
 import com.example.einore.minecollection.model.Chemical_DAO;
+import com.example.einore.minecollection.model.Location;
 import com.example.einore.minecollection.model.Location_DAO;
 import com.example.einore.minecollection.model.Mineral;
 import com.example.einore.minecollection.model.Mineral_DAO;
@@ -33,6 +35,11 @@ public class EditMineralActivity extends AppCompatActivity {
     private EditText densityEdit;
     private EditText priceEdit;
     private EditText locationEdit;
+    private EditText chemicalFormulaEdit;
+    private EditText chemicalClassEdit;
+    private EditText cityEdit;
+    private EditText areaEdit;
+    private EditText countryEdit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +61,11 @@ public class EditMineralActivity extends AppCompatActivity {
             TextView densityView = (TextView) findViewById(R.id.textViewDensity);
             TextView priceView = (TextView) findViewById(R.id.textViewPrice);
             TextView locationView = (TextView) findViewById(R.id.textViewLocation);
-
+            TextView chemicalFormulaView = (TextView) findViewById(R.id.textViewChemicalFormula);
+            TextView chemicalClassView = (TextView) findViewById(R.id.textViewChemicalClass);
+            TextView cityView = (TextView) findViewById(R.id.textViewCity);
+            TextView areaView = (TextView) findViewById(R.id.textViewArea);
+            TextView countryView = (TextView) findViewById(R.id.textViewCountry);
 
             nameEdit = (EditText) findViewById(R.id.editTextName);
             minAssEdit = (EditText) findViewById(R.id.editTextMinAss);
@@ -67,6 +78,11 @@ public class EditMineralActivity extends AppCompatActivity {
             densityEdit = (EditText) findViewById(R.id.editTextDensity);
             priceEdit = (EditText) findViewById(R.id.editTextPrice);
             locationEdit = (EditText) findViewById(R.id.editTextLocation);
+            chemicalFormulaEdit = (EditText) findViewById(R.id.editTextChemicalFormula);
+            chemicalClassEdit = (EditText) findViewById(R.id.editTextChemicalClass);
+            cityEdit = (EditText) findViewById(R.id.editTextCity);
+            areaEdit = (EditText) findViewById(R.id.editTextArea);
+            countryEdit = (EditText) findViewById(R.id.editTextCountry);
 
             Button saveButton = (Button) findViewById(R.id.buttonSave);
             Button deleteButton = (Button) findViewById(R.id.buttonDelete);
@@ -76,11 +92,15 @@ public class EditMineralActivity extends AppCompatActivity {
             final String fk_user = listIntent.getStringExtra("idUser");
 
             mMineral_dao = new Mineral_DAO(EditMineralActivity.this);
-            mLocation_dao = new Location_DAO(EditMineralActivity.this);
             mChemical_dao = new Chemical_DAO(EditMineralActivity.this);
+            mLocation_dao = new Location_DAO(EditMineralActivity.this);
 
             mMineral_dao.openForRead();
             final Mineral mineral = mMineral_dao.getObjectById(idMineral);
+            final int fk_location = mineral.getForeignKey_location();
+            final int fk_chemical = mineral.getForeignKey_chemical();
+            final Chemical chemical = mChemical_dao.getObjectById(fk_chemical);
+            final Location location = mLocation_dao.getObjectById(fk_location);
             mMineral_dao.close();
 
 
@@ -104,8 +124,11 @@ public class EditMineralActivity extends AppCompatActivity {
             densityEdit.setText(densityE);
             priceEdit.setText(priceE);
 
-            final int fk_location = mineral.getForeignKey_location();
-            final int fk_chemical = mineral.getForeignKey_chemical();
+            chemicalFormulaEdit.setText(chemical.getChemical_formula());
+            chemicalClassEdit.setText(chemical.getChemical_class());
+            cityEdit.setText(location.getLocation_city());
+            areaEdit.setText(location.getLocation_area());
+            countryEdit.setText(location.getLocation_Country());
 
 
             saveButton.setOnClickListener(new View.OnClickListener() {
