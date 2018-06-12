@@ -10,12 +10,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.einore.minecollection.R;
+import com.example.einore.minecollection.model.Chemical_DAO;
+import com.example.einore.minecollection.model.Location_DAO;
 import com.example.einore.minecollection.model.Mineral;
 import com.example.einore.minecollection.model.Mineral_DAO;
 
 public class EditMineralActivity extends AppCompatActivity {
 
     private Mineral_DAO mMineral_dao;
+    private Location_DAO mLocation_dao;
+    private Chemical_DAO mChemical_dao;
 
 
     private EditText nameEdit;
@@ -72,6 +76,8 @@ public class EditMineralActivity extends AppCompatActivity {
             final String fk_user = listIntent.getStringExtra("idUser");
 
             mMineral_dao = new Mineral_DAO(EditMineralActivity.this);
+            mLocation_dao = new Location_DAO(EditMineralActivity.this);
+            mChemical_dao = new Chemical_DAO(EditMineralActivity.this);
 
             mMineral_dao.openForRead();
             final Mineral mineral = mMineral_dao.getObjectById(idMineral);
@@ -208,6 +214,18 @@ public class EditMineralActivity extends AppCompatActivity {
                     Intent listMineralIntent = new Intent(EditMineralActivity.this, ListMineralsActivity.class);
                     listMineralIntent.putExtra("idUser", fk_user);
                     startActivity(listMineralIntent);
+
+                }
+            });
+
+            deleteButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    int id = Integer.parseInt(setId);
+                    mMineral_dao.remove(id);
+                    mLocation_dao.remove(fk_location);
+                    mChemical_dao.remove(fk_chemical);
 
                 }
             });
