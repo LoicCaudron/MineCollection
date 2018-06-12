@@ -137,7 +137,7 @@ public class Mineral_DAO  {
     public Mineral getObjectById(String id) {
 
         Cursor c = db.rawQuery( "SELECT * FROM " + table_mineral + " WHERE " +
-                COL_ID + " = ? ", new String[] {String.valueOf(id)} );
+                COL_ID + " = ? ", new String[] {id} );
 
         return cursorToObject(c);
     }

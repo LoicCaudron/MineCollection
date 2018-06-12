@@ -86,12 +86,12 @@ public class Chemical_DAO   {
         return cursorToObject(c);
     }
 
-    public Chemical getObjectById(int id) {
+    public Chemical getObjectById(String id) {
         //Cursor c = db.query(table_chemical, new String[] {COL_ID, COL_FORMULA, COL_CLASS}, COL_FORMULA + " LIKE \"" +
         //        formula + " \"", null, null, null, COL_FORMULA );
 
         Cursor c = db.rawQuery( "SELECT * FROM " + table_chemical + " WHERE " +
-                COL_ID + "=?", new String[] {String.valueOf(id)} );
+                COL_ID + "=?", new String[] {id} );
 
         return cursorToObject(c);
     }

@@ -96,12 +96,21 @@ public class EditMineralActivity extends AppCompatActivity {
             mLocation_dao = new Location_DAO(EditMineralActivity.this);
 
             mMineral_dao.openForRead();
+            mChemical_dao.openForRead();
+            mLocation_dao.openForRead();
             final Mineral mineral = mMineral_dao.getObjectById(idMineral);
             final int fk_location = mineral.getForeignKey_location();
             final int fk_chemical = mineral.getForeignKey_chemical();
-            final Chemical chemical = mChemical_dao.getObjectById(fk_chemical);
-            final Location location = mLocation_dao.getObjectById(fk_location);
+            String fkLocation = String.valueOf(fk_location);
+            String fkChemical = String.valueOf(fk_chemical);
+            final Chemical chemical = mChemical_dao.getObjectById(fkChemical);
+            final Location location = mLocation_dao.getObjectById(fkLocation);
+
+            /*String chimique = String.valueOf(fk_chemical);
+            Toast.makeText(this, chimique.toString(), Toast.LENGTH_SHORT).show();*/
             mMineral_dao.close();
+            mChemical_dao.close();
+            mLocation_dao.close();
 
 
             final String setId = " Description of mineral ID : " + idMineral;
@@ -125,7 +134,8 @@ public class EditMineralActivity extends AppCompatActivity {
             priceEdit.setText(priceE);
 
             chemicalFormulaEdit.setText(chemical.getChemical_formula());
-            chemicalClassEdit.setText(chemical.getChemical_class());
+            String chemicalClass = String.valueOf(chemical.getChemical_class());
+            chemicalClassEdit.setText(chemicalClass);
             cityEdit.setText(location.getLocation_city());
             areaEdit.setText(location.getLocation_area());
             countryEdit.setText(location.getLocation_Country());
