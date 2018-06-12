@@ -223,10 +223,22 @@ public class EditMineralActivity extends AppCompatActivity {
                 public void onClick(View v) {
 
                     int id = Integer.parseInt(setId);
+
+                    mMineral_dao.openForWrite();
+                    mLocation_dao.openForWrite();
+                    mChemical_dao.openForWrite();
+
                     mMineral_dao.remove(id);
                     mLocation_dao.remove(fk_location);
                     mChemical_dao.remove(fk_chemical);
 
+                    mMineral_dao.close();
+                    mLocation_dao.close();
+                    mChemical_dao.close();
+
+                    Intent listMineralIntent = new Intent(EditMineralActivity.this, ListMineralsActivity.class);
+                    listMineralIntent.putExtra("idUser", fk_user);
+                    startActivity(listMineralIntent);
                 }
             });
         }
