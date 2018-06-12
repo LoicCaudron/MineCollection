@@ -60,7 +60,7 @@
 
                 <EditText
                     android:id="@+id/editTextName"
-                    android:layout_width="305dp"
+                    android:layout_width="282dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
@@ -91,7 +91,7 @@
 
                 <EditText
                     android:id="@+id/editTextSystCrist"
-                    android:layout_width="280dp"
+                    android:layout_width="259dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
@@ -122,7 +122,7 @@
 
                 <EditText
                     android:id="@+id/editTextColor"
-                    android:layout_width="309dp"
+                    android:layout_width="283dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
@@ -153,7 +153,7 @@
 
                 <EditText
                     android:id="@+id/editTextGlow"
-                    android:layout_width="311dp"
+                    android:layout_width="289dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
@@ -184,9 +184,10 @@
 
                 <EditText
                     android:id="@+id/editTextAspect"
-                    android:layout_width="300dp"
+                    android:layout_width="272dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
+                    android:layout_marginStart="15dp"
                     android:layout_toEndOf="@+id/textViewAspect" />
 
             </RelativeLayout>
@@ -214,7 +215,7 @@
 
                 <EditText
                     android:id="@+id/editTextClivage"
-                    android:layout_width="297dp"
+                    android:layout_width="273dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
@@ -246,7 +247,7 @@
 
                 <EditText
                     android:id="@+id/editTextHardness"
-                    android:layout_width="280dp"
+                    android:layout_width="256dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true" />
@@ -276,7 +277,7 @@
 
                 <EditText
                     android:id="@+id/editTextDensity"
-                    android:layout_width="290dp"
+                    android:layout_width="272dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
@@ -307,7 +308,7 @@
 
                 <EditText
                     android:id="@+id/editTextPrice"
-                    android:layout_width="309dp"
+                    android:layout_width="280dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
