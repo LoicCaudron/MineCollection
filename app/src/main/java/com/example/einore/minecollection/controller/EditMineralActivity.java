@@ -222,9 +222,12 @@ public class EditMineralActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
 
-                    int id = Integer.parseInt(setId);
+                    try{
+                        int id = Integer.parseInt(setId);
 
-                    mMineral_dao.openForWrite();
+                        Toast.makeText(EditMineralActivity.this, idMineral.toString(), Toast.LENGTH_LONG).show();
+
+                    /*mMineral_dao.openForWrite();
                     mLocation_dao.openForWrite();
                     mChemical_dao.openForWrite();
 
@@ -234,11 +237,34 @@ public class EditMineralActivity extends AppCompatActivity {
 
                     mMineral_dao.close();
                     mLocation_dao.close();
-                    mChemical_dao.close();
+                    mChemical_dao.close();*/
 
-                    Intent listMineralIntent = new Intent(EditMineralActivity.this, ListMineralsActivity.class);
+                    /*Intent listMineralIntent = new Intent(EditMineralActivity.this, ListMineralsActivity.class);
                     listMineralIntent.putExtra("idUser", fk_user);
-                    startActivity(listMineralIntent);
+                    startActivity(listMineralIntent);*/
+                    }
+                    catch (Exception e){
+                        Toast.makeText(EditMineralActivity.this, e.toString(), Toast.LENGTH_LONG).show();
+                    }
+                    int id = Integer.parseInt(setId);
+
+                    Toast.makeText(EditMineralActivity.this, idMineral.toString(), Toast.LENGTH_LONG).show();
+
+                    /*mMineral_dao.openForWrite();
+                    mLocation_dao.openForWrite();
+                    mChemical_dao.openForWrite();
+
+                    mMineral_dao.remove(id);
+                    mLocation_dao.remove(fk_location);
+                    mChemical_dao.remove(fk_chemical);
+
+                    mMineral_dao.close();
+                    mLocation_dao.close();
+                    mChemical_dao.close();*/
+
+                    /*Intent listMineralIntent = new Intent(EditMineralActivity.this, ListMineralsActivity.class);
+                    listMineralIntent.putExtra("idUser", fk_user);
+                    startActivity(listMineralIntent);*/
                 }
             });
         }
