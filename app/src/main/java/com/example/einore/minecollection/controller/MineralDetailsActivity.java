@@ -16,6 +16,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.einore.minecollection.model.Chemical;
+import com.example.einore.minecollection.model.Chemical_DAO;
+import com.example.einore.minecollection.model.Location_DAO;
 import com.example.einore.minecollection.model.Mineral;
 import com.example.einore.minecollection.model.Mineral_DAO;
 import com.example.einore.minecollection.R;
@@ -36,6 +39,7 @@ public class MineralDetailsActivity extends AppCompatActivity {
 
         TextView idView = (TextView)findViewById(R.id.textViewId);
         TextView nameView = (TextView) findViewById(R.id.textViewName);
+        TextView minAssView = (TextView) findViewById(R.id.textViewMinAss);
         TextView systCristView = (TextView) findViewById(R.id.textViewSystCrist);
         TextView colorView = (TextView) findViewById(R.id.textViewColor);
         TextView glowView = (TextView) findViewById(R.id.textViewGlow);
@@ -44,6 +48,7 @@ public class MineralDetailsActivity extends AppCompatActivity {
         TextView hardnessView = (TextView) findViewById(R.id.textViewHardness);
         TextView densityView = (TextView) findViewById(R.id.textViewDensity);
         TextView priceView = (TextView) findViewById(R.id.textViewPrice);
+        TextView locationView = (TextView) findViewById(R.id.textViewLocation);
 
         final EditText phone_num = (EditText) findViewById(R.id.editTextPhoneNumber);
         final EditText email = (EditText) findViewById(R.id.editTextEmail);
@@ -54,17 +59,22 @@ public class MineralDetailsActivity extends AppCompatActivity {
 
         Intent listIntent = getIntent();
         final String idMineral = listIntent.getStringExtra("idMineral");
-
         int id = Integer.parseInt(idMineral);
 
-        Context context = getApplicationContext();
-        Mineral_DAO mineral_dao = new Mineral_DAO(context);
+        //Context context = getApplicationContext();
+        Mineral_DAO mineral_dao = new Mineral_DAO(MineralDetailsActivity.this);
+        //Chemical_DAO chemical_dao = new Chemical_DAO(MineralDetailsActivity.this);
+        //Location_DAO location_dao = new Location_DAO(MineralDetailsActivity.this);
+
         mineral_dao.openForRead();
         final Mineral mineral = mineral_dao.getObjectById(idMineral);
+        //final Chemical chemical = chemical_dao.getObjectById();
+        //final Location location = location_dao.getObjectById();
         mineral_dao.close();
 
         final String setId = " Description of mineral ID : " + idMineral;
         final String setName = "\n Name : " + mineral.getMineral_name();
+        final String setMinAss = "\n Min Ass : " + mineral.getMineral_minAss();
         final String setSystCrist = "\n Syst Crist : " + mineral.getMineral_systCrist();
         final String setColor = "\n Color : " + mineral.getMineral_color();
         final String setGlow = "\n Glow : " + mineral.getMineral_glow();
@@ -73,9 +83,11 @@ public class MineralDetailsActivity extends AppCompatActivity {
         final String setHardness = "\n Hardness : " + mineral.getMineral_hardness();
         final String setDensity = "\n Density : " + mineral.getMineral_density();
         final String setPrice = "\n Price : " + mineral.getMineral_price();
+        final String setLocation = "\n Location : " + mineral.getMineral_location();
 
         idView.setText(setId);
         nameView.setText(setName);
+        minAssView.setText(setMinAss);
         systCristView.setText(setSystCrist);
         colorView.setText(setColor);
         glowView.setText(setGlow);
@@ -84,6 +96,7 @@ public class MineralDetailsActivity extends AppCompatActivity {
         hardnessView.setText(setHardness);
         densityView.setText(setDensity);
         priceView.setText(setPrice);
+        locationView.setText(setLocation);
 
 
         sendButton.setOnClickListener(new View.OnClickListener() {
@@ -94,6 +107,7 @@ public class MineralDetailsActivity extends AppCompatActivity {
                     num = phone_num.getText().toString();
                     String message = "Informations mineral ID : " + idMineral
                             + setName
+                            + setMinAss
                             + setSystCrist
                             + setColor
                             + setGlow
@@ -101,7 +115,8 @@ public class MineralDetailsActivity extends AppCompatActivity {
                             + setClivage
                             + setHardness
                             + setDensity
-                            + setPrice;
+                            + setPrice
+                            + setLocation;
 
 
                     // Allow to send messages longer than 160 characters ( max length previous method )
@@ -134,6 +149,7 @@ public class MineralDetailsActivity extends AppCompatActivity {
                     //String email = sendEmailButton.getText().toString();
                     String message = "Informations mineral ID : " + idMineral
                             + setName
+                            + setMinAss
                             + setSystCrist
                             + setColor
                             + setGlow
@@ -141,7 +157,8 @@ public class MineralDetailsActivity extends AppCompatActivity {
                             + setClivage
                             + setHardness
                             + setDensity
-                            + setPrice;
+                            + setPrice
+                            + setLocation;
 
                     //intent to send email
                     intent = new Intent(Intent.ACTION_SEND);
