@@ -128,58 +128,62 @@ public class EditMineralActivity extends AppCompatActivity {
                     String location = locationEdit.getText().toString();
                     int fkUser = Integer.parseInt(fk_user);
 
+                    String hardNess = String.valueOf(hardness);
+                    String denSity = String.valueOf(density);
+                    String priCe = String.valueOf(price);
+
                     if(name.isEmpty()){
                         //error name is empty
                         Toast.makeText(EditMineralActivity.this, "You must enter a name", Toast.LENGTH_SHORT).show();
                     }
 
                     if(minAss.isEmpty()){
-                        //error name is empty
+
                         Toast.makeText(EditMineralActivity.this, "You must enter a minAss", Toast.LENGTH_SHORT).show();
                     }
 
                     if(systCrist.isEmpty()){
-                        //error name is empty
+
                         Toast.makeText(EditMineralActivity.this, "You must enter a systCrist", Toast.LENGTH_SHORT).show();
                     }
 
                     if(color.isEmpty()){
-                        //error name is empty
+
                         Toast.makeText(EditMineralActivity.this, "You must enter a color", Toast.LENGTH_SHORT).show();
                     }
 
                     if(glow.isEmpty()){
-                        //error name is empty
+
                         Toast.makeText(EditMineralActivity.this, "You must enter a glow", Toast.LENGTH_SHORT).show();
                     }
 
                     if(aspect.isEmpty()){
-                        //error name is empty
+
                         Toast.makeText(EditMineralActivity.this, "You must enter an aspect", Toast.LENGTH_SHORT).show();
                     }
 
                     if(clivage.isEmpty()){
-                        //error name is empty
+
                         Toast.makeText(EditMineralActivity.this, "You must enter a clivage", Toast.LENGTH_SHORT).show();
                     }
 
-                /*if(){
-                    //error name is empty
-                    Toast.makeText(EditMineralActivity.this, "You must enter an hardness", Toast.LENGTH_SHORT).show();
-                }
+                    if(hardNess.isEmpty()){
 
-                if(density.isEmpty()){
-                    //error name is empty
+                        Toast.makeText(EditMineralActivity.this, "You must enter an hardness", Toast.LENGTH_SHORT).show();
+                    }
+
+                    if(denSity.isEmpty()){
+
                     Toast.makeText(EditMineralActivity.this, "You must enter a density", Toast.LENGTH_SHORT).show();
-                }
+                    }
 
-                if(price.isEmpty()){
-                    //error name is empty
-                    Toast.makeText(EditMineralActivity.this, "You must enter a price", Toast.LENGTH_SHORT).show();
-                }*/
+                    if(priCe.isEmpty()){
+
+                        Toast.makeText(EditMineralActivity.this, "You must enter a price", Toast.LENGTH_SHORT).show();
+                    }
 
                     if(location.isEmpty()){
-                        //error name is empty
+
                         Toast.makeText(EditMineralActivity.this, "You must enter a location", Toast.LENGTH_SHORT).show();
                     }
 
