@@ -59,7 +59,7 @@ public class MineralDetailsActivity extends AppCompatActivity {
 
         Context context = getApplicationContext();
         Mineral_DAO mineral_dao = new Mineral_DAO(context);
-        mineral_dao.openForWrite();
+        mineral_dao.openForRead();
         final Mineral mineral = mineral_dao.getObjectById(idMineral);
         mineral_dao.close();
 
