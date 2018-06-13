@@ -318,7 +318,7 @@ public class EditMineralActivity extends AppCompatActivity {
         if (k == checklist.size()) {
             checked = true;
         }
-        
+
 
         return checked;
     }
