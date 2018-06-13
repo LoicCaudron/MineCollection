@@ -243,7 +243,7 @@ public class EditMineralActivity extends AppCompatActivity {
                     try {
                         int id = Integer.parseInt(idMineral);
 
-                        Toast.makeText(EditMineralActivity.this, idMineral.toString(), Toast.LENGTH_LONG).show();
+                        //Toast.makeText(EditMineralActivity.this, idMineral.toString(), Toast.LENGTH_LONG).show();
 
                         mMineral_dao.openForWrite();
                         mLocation_dao.openForWrite();
