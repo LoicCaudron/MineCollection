@@ -20,6 +20,7 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        setTitle("Home");
 
         Intent intent = getIntent();
         final String idUser = intent.getStringExtra("idUser");
