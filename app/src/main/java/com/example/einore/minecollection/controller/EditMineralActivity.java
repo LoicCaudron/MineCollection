@@ -17,6 +17,8 @@ import com.example.einore.minecollection.model.Location_DAO;
 import com.example.einore.minecollection.model.Mineral;
 import com.example.einore.minecollection.model.Mineral_DAO;
 
+import java.util.ArrayList;
+
 public class EditMineralActivity extends AppCompatActivity {
 
     private Mineral_DAO mMineral_dao;
@@ -41,15 +43,18 @@ public class EditMineralActivity extends AppCompatActivity {
     private EditText areaEdit;
     private EditText countryEdit;
 
+    boolean checked;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_mineral);
         setTitle("Edit");
 
-        try{
+        try {
 
-            TextView idView = (TextView)findViewById(R.id.textViewId);
+            TextView idView = (TextView) findViewById(R.id.textViewId);
             TextView nameView = (TextView) findViewById(R.id.textViewName);
             TextView minAssView = (TextView) findViewById(R.id.textViewMinAss);
             TextView systCristView = (TextView) findViewById(R.id.textViewSystCrist);
@@ -145,113 +150,86 @@ public class EditMineralActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
 
-                    try{
+                    try {
 
-                    int id = Integer.parseInt(idMineral);
-                    String name = nameEdit.getText().toString();
-                    String minAss = minAssEdit.getText().toString();
-                    String systCrist = systCristEdit.getText().toString();
-                    String color = colorEdit.getText().toString();
-                    String glow = glowEdit.getText().toString();
-                    String aspect = aspectEdit.getText().toString();
-                    String clivage = clivageEdit.getText().toString();
-                    float hardness = Float.parseFloat(hardnessEdit.getText().toString());
-                    float density = Float.parseFloat(densityEdit.getText().toString());
-                    float price = Float.parseFloat(priceEdit.getText().toString());
-                    String location = locationEdit.getText().toString();
-                    int fkUser = Integer.parseInt(fk_user);
+                        int id = Integer.parseInt(idMineral);
+                        String name = nameEdit.getText().toString();
+                        String minAss = minAssEdit.getText().toString();
+                        String systCrist = systCristEdit.getText().toString();
+                        String color = colorEdit.getText().toString();
+                        String glow = glowEdit.getText().toString();
+                        String aspect = aspectEdit.getText().toString();
+                        String clivage = clivageEdit.getText().toString();
+                        float hardness = Float.parseFloat(hardnessEdit.getText().toString());
+                        float density = Float.parseFloat(densityEdit.getText().toString());
+                        float price = Float.parseFloat(priceEdit.getText().toString());
+                        String location = locationEdit.getText().toString();
+                        int fkUser = Integer.parseInt(fk_user);
 
-                    String hardNess = String.valueOf(hardness);
-                    String denSity = String.valueOf(density);
-                    String priCe = String.valueOf(price);
+                        String hardNess = String.valueOf(hardness);
+                        String denSity = String.valueOf(density);
+                        String priCe = String.valueOf(price);
 
-                    if(name.isEmpty()){
-                        //error name is empty
-                        Toast.makeText(EditMineralActivity.this, "You must enter a name", Toast.LENGTH_SHORT).show();
-                    }
+                        String chemicalFormula = chemicalFormulaEdit.getText().toString();
+                        int chemicalClass = Integer.parseInt(chemicalClassEdit.getText().toString());
+                        String chemicalClassS = String.valueOf(chemicalClass);
+                        String city = cityEdit.getText().toString();
+                        String area = areaEdit.getText().toString();
+                        String country = countryEdit.getText().toString();
 
-                    if(minAss.isEmpty()){
+                        checked = check(name, minAss, systCrist, color, glow, aspect, clivage, hardNess, denSity, priCe, location, chemicalFormula, chemicalClassS, city, area, country);
+                        //check if the fields are not empty
 
-                        Toast.makeText(EditMineralActivity.this, "You must enter a minAss", Toast.LENGTH_SHORT).show();
-                    }
-
-                    if(systCrist.isEmpty()){
-
-                        Toast.makeText(EditMineralActivity.this, "You must enter a systCrist", Toast.LENGTH_SHORT).show();
-                    }
-
-                    if(color.isEmpty()){
-
-                        Toast.makeText(EditMineralActivity.this, "You must enter a color", Toast.LENGTH_SHORT).show();
-                    }
-
-                    if(glow.isEmpty()){
-
-                        Toast.makeText(EditMineralActivity.this, "You must enter a glow", Toast.LENGTH_SHORT).show();
-                    }
-
-                    if(aspect.isEmpty()){
-
-                        Toast.makeText(EditMineralActivity.this, "You must enter an aspect", Toast.LENGTH_SHORT).show();
-                    }
-
-                    if(clivage.isEmpty()){
-
-                        Toast.makeText(EditMineralActivity.this, "You must enter a clivage", Toast.LENGTH_SHORT).show();
-                    }
-
-                    if(hardNess.isEmpty()){
-
-                        Toast.makeText(EditMineralActivity.this, "You must enter an hardness", Toast.LENGTH_SHORT).show();
-                    }
-
-                    if(denSity.isEmpty()){
-
-                    Toast.makeText(EditMineralActivity.this, "You must enter a density", Toast.LENGTH_SHORT).show();
-                    }
-
-                    if(priCe.isEmpty()){
-
-                        Toast.makeText(EditMineralActivity.this, "You must enter a price", Toast.LENGTH_SHORT).show();
-                    }
-
-                    if(location.isEmpty()){
-
-                        Toast.makeText(EditMineralActivity.this, "You must enter a location", Toast.LENGTH_SHORT).show();
-                    }
-
-                    Mineral updatedMineral = new Mineral();
+                        if (checked == true) {
+                            Mineral updatedMineral = new Mineral();
+                            Chemical updatedChemical = new Chemical();
+                            Location updatedLocation = new Location();
 
 
-                    updatedMineral.setMineral_id(id);
-                    updatedMineral.setMineral_name(name);
-                    updatedMineral.setMineral_minAss(minAss);
-                    updatedMineral.setMineral_systCrist(systCrist);
-                    updatedMineral.setMineral_color(color);
-                    updatedMineral.setMineral_glow(glow);
-                    updatedMineral.setMineral_aspect(aspect);
-                    updatedMineral.setMineral_clivage(clivage);
-                    updatedMineral.setMineral_hardness(hardness);
-                    updatedMineral.setMineral_density(density);
-                    updatedMineral.setMineral_price(price);
-                    updatedMineral.setMineral_location(location);
-                    updatedMineral.setForeignKey_user(fkUser);
-                    updatedMineral.setForeignKey_location(fk_location);
-                    updatedMineral.setForeignKey_chemical(fk_chemical);
+                            updatedMineral.setMineral_id(id);
+                            updatedMineral.setMineral_name(name);
+                            updatedMineral.setMineral_minAss(minAss);
+                            updatedMineral.setMineral_systCrist(systCrist);
+                            updatedMineral.setMineral_color(color);
+                            updatedMineral.setMineral_glow(glow);
+                            updatedMineral.setMineral_aspect(aspect);
+                            updatedMineral.setMineral_clivage(clivage);
+                            updatedMineral.setMineral_hardness(hardness);
+                            updatedMineral.setMineral_density(density);
+                            updatedMineral.setMineral_price(price);
+                            updatedMineral.setMineral_location(location);
+                            updatedMineral.setForeignKey_user(fkUser);
+                            updatedMineral.setForeignKey_location(fk_location);
+                            updatedMineral.setForeignKey_chemical(fk_chemical);
+
+                            updatedChemical.setChemical_formula(chemicalFormula);
+                            updatedChemical.setChemical_class(chemicalClass);
+
+                            updatedLocation.setLocation_city(city);
+                            updatedLocation.setLocation_area(area);
+                            updatedLocation.setLocation_Country(country);
 
 
-                    mMineral_dao.openForWrite();
-                    mMineral_dao.update(idMineral, updatedMineral);
-                    mMineral_dao.close();
+                            mMineral_dao.openForWrite();
+                            mChemical_dao.openForWrite();
+                            mLocation_dao.openForWrite();
 
-                        //Toast.makeText(EditMineralActivity.this, "Ca fonctionne", Toast.LENGTH_LONG).show();
+                            mMineral_dao.update(idMineral, updatedMineral);
+                            mChemical_dao.update(fk_chemical, updatedChemical);
+                            mLocation_dao.update(fk_location, updatedLocation);
 
-                    Intent listMineralIntent = new Intent(EditMineralActivity.this, ListMineralsActivity.class);
-                    listMineralIntent.putExtra("idUser", fk_user);
-                    startActivity(listMineralIntent);
-                    }
+                            mMineral_dao.close();
+                            mChemical_dao.close();
+                            mLocation_dao.close();
 
-                    catch (Exception e){
+                            //Toast.makeText(EditMineralActivity.this, "Ca fonctionne", Toast.LENGTH_LONG).show();
+
+                            Intent listMineralIntent = new Intent(EditMineralActivity.this, ListMineralsActivity.class);
+                            listMineralIntent.putExtra("idUser", fk_user);
+                            startActivity(listMineralIntent);
+                        }
+
+                    } catch (Exception e) {
                         Toast.makeText(EditMineralActivity.this, e.toString(), Toast.LENGTH_LONG).show();
                     }
 
@@ -262,37 +240,87 @@ public class EditMineralActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
 
-                    try{
+                    try {
                         int id = Integer.parseInt(idMineral);
 
                         Toast.makeText(EditMineralActivity.this, idMineral.toString(), Toast.LENGTH_LONG).show();
 
-                    mMineral_dao.openForWrite();
-                    mLocation_dao.openForWrite();
-                    mChemical_dao.openForWrite();
+                        mMineral_dao.openForWrite();
+                        mLocation_dao.openForWrite();
+                        mChemical_dao.openForWrite();
 
-                    mMineral_dao.remove(id);
-                    mLocation_dao.remove(fk_location);
-                    mChemical_dao.remove(fk_chemical);
+                        mMineral_dao.remove(id);
+                        mLocation_dao.remove(fk_location);
+                        mChemical_dao.remove(fk_chemical);
 
-                    mMineral_dao.close();
-                    mLocation_dao.close();
-                    mChemical_dao.close();
+                        mMineral_dao.close();
+                        mLocation_dao.close();
+                        mChemical_dao.close();
 
-                    Intent listMineralIntent = new Intent(EditMineralActivity.this, ListMineralsActivity.class);
-                    listMineralIntent.putExtra("idUser", fk_user);
-                    startActivity(listMineralIntent);
-                    }
-                    catch (Exception e){
+                        Intent listMineralIntent = new Intent(EditMineralActivity.this, ListMineralsActivity.class);
+                        listMineralIntent.putExtra("idUser", fk_user);
+                        startActivity(listMineralIntent);
+                    } catch (Exception e) {
                         Toast.makeText(EditMineralActivity.this, e.toString(), Toast.LENGTH_LONG).show();
                     }
                 }
             });
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             Toast.makeText(EditMineralActivity.this, e.toString(), Toast.LENGTH_LONG).show();
         }
 
 
     }
+
+    private boolean check(String name, String minAss, String systCrist, String color, String glow, String aspect, String clivage, String hardNess, String denSity, String priCe, String location, String chemicalFormula, String chemicalClassS, String city, String area, String country) {
+
+        ArrayList<String> checklist = new ArrayList<String>();
+
+        checklist.add(name);
+        checklist.add(minAss);
+        checklist.add(systCrist);
+        checklist.add(color);
+        checklist.add(glow);
+        checklist.add(aspect);
+        checklist.add(clivage);
+        checklist.add(hardNess);
+        checklist.add(denSity);
+        checklist.add(priCe);
+        checklist.add(location);
+        checklist.add(chemicalFormula);
+        checklist.add(chemicalClassS);
+        checklist.add(city);
+        checklist.add(area);
+        checklist.add(country);
+
+        boolean checked = false;
+
+        int bool[] = new int[checklist.size()];
+        int k = 0;
+
+        for (int i = 0; i < checklist.size(); i++) {
+
+            if (checklist.get(i).isEmpty()) {
+                Toast.makeText(EditMineralActivity.this, "A field is empty. Please complete it or put a /", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                bool[i] = 1;
+            }
+
+        }
+
+        for (int j = 0; j < bool.length; j++) {
+            if (bool[j] == 1) {
+                k = k + 1;
+            }
+        }
+
+        if (k == checklist.size()) {
+            checked = true;
+        }
+        
+
+        return checked;
+    }
+
 }
