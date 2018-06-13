@@ -34,7 +34,7 @@
         android:layout_below="@+id/textView"
         android:layout_marginTop="29dp"
         android:ems="10"
-        android:hint="ex: mau"
+        android:hint="ex: loic"
         android:inputType="text" />
 
     <TextView
