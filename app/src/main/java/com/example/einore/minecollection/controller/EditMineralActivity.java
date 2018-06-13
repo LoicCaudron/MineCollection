@@ -112,7 +112,7 @@ public class EditMineralActivity extends AppCompatActivity {
             final Location location = mLocation_dao.getObjectById(fkLocation);
 
             /*String chimique = String.valueOf(fk_chemical);
-            Toast.makeText(this, chimique.toString(), Toast.LENGTH_SHORT).show();*/
+            Toast.makeText(this, chimique.toString(), Toast.LENGTH_LONG).show();*/
             mMineral_dao.close();
             mChemical_dao.close();
             mLocation_dao.close();
@@ -301,7 +301,7 @@ public class EditMineralActivity extends AppCompatActivity {
         for (int i = 0; i < checklist.size(); i++) {
 
             if (checklist.get(i).isEmpty()) {
-                Toast.makeText(EditMineralActivity.this, "A field is empty. Please complete it or put a /", Toast.LENGTH_SHORT).show();
+                Toast.makeText(EditMineralActivity.this, "A field is empty. Please complete it or put a \"/\" ", Toast.LENGTH_LONG).show();
             }
             else {
                 bool[i] = 1;
