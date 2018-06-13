@@ -44,6 +44,7 @@ public class NewMineralActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_mineral);
+        setTitle("Add mineral");
 
         //Getting the idUser in the Intent to use it as the fk_user
         Intent intent = getIntent();
