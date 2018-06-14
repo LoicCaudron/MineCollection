@@ -139,8 +139,7 @@ public class MineralDetailsActivity extends AppCompatActivity {
                             + setClivage
                             + setHardness
                             + setDensity
-                            + setPrice
-                            + setLocation;
+                            + setPrice;
 
 
                     // Allow to send messages longer than 160 characters ( max length previous method )
